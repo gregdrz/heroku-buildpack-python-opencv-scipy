@@ -76,10 +76,9 @@ if [ ! -f $CACHE_DIR/env.tar.gz ]; then
   curl -s -L "http://bit.ly/1M8sPPF" > $CACHE_DIR/env.tar.gz
 fi
 subtitle "Unpacking..."
-tar -xzf $CACHE_DIR/env.tar.gz -C $BUILD_DIR
+tar -xvzf $CACHE_DIR/env.tar.gz -C $BUILD_DIR
 
-title "BUILD DIR"
-title "build dir is " $BUILD_DIR
+title "Build dir is " $BUILD_DIR
 
 # installing application dependencies
 if [ -f $BUILD_DIR/requirements.txt ]; then

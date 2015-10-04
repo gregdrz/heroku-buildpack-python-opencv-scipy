@@ -70,6 +70,10 @@ export PYTHONPATH="$BUILD_DIR/.heroku/vendor/lib/python3.4/site-packages/"
 # Setup environment
 mkdir -p $CACHE_DIR
 title "Generating environment"
+rm -f -r $CACHE_DIR/env.tar.gz
+subtitle "Fetching..."
+# curl -s -L "https://db.tt/xurahIeK" > $CACHE_DIR/env.tar.gz
+curl -s -L "http://bit.ly/1M8sPPF" > $CACHE_DIR/env.tar.gz
 if [ ! -f $CACHE_DIR/env.tar.gz ]; then
 	subtitle "Fetching..."
 	# curl -s -L "https://db.tt/xurahIeK" > $CACHE_DIR/env.tar.gz

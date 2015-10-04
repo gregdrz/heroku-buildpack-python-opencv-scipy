@@ -76,7 +76,9 @@ if [ ! -f $CACHE_DIR/env.tar.gz ]; then
   curl -s -L "http://bit.ly/1M8sPPF" > $CACHE_DIR/env.tar.gz
 fi
 subtitle "Unpacking..."
-tar -xvzf $CACHE_DIR/env.tar.gz -C $BUILD_DIR
+tar -xzf $CACHE_DIR/env.tar.gz -C $BUILD_DIR
+
+ls -l -a $BUILD_DIR
 
 title "Build dir is " $BUILD_DIR
 

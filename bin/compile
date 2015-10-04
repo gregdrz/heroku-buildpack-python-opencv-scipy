@@ -78,7 +78,8 @@ fi
 subtitle "Unpacking..."
 tar -xzf $CACHE_DIR/env.tar.gz -C $BUILD_DIR
 
-title $BUILD_DIR
+title "BUILD DIR"
+title "build dir is " $BUILD_DIR
 
 # installing application dependencies
 if [ -f $BUILD_DIR/requirements.txt ]; then

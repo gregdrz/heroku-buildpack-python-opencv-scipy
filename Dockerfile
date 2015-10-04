@@ -28,6 +28,8 @@ RUN rm Python-3.4.3.tgz
 WORKDIR /app/.heroku/Python-3.4.3
 RUN ./configure --prefix=/app/.heroku/vendor/ --enable-shared
 RUN make install
+WORKDIR /app/.heroku/vendor/bin
+RUN cp python3 python
 WORKDIR /app/.heroku
 RUN rm -rf Python-3.4.3
 
@@ -78,3 +80,4 @@ RUN cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/app/.heroku/vendo
 RUN make install
 WORKDIR /app/.heroku
 RUN rm -rf opencv-3.0.0
+RUN rm -rf opencv_contrib-3.0.0

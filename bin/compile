@@ -78,7 +78,7 @@ fi
 subtitle "Unpacking..."
 tar -xzf $CACHE_DIR/env.tar.gz -C $BUILD_DIR
 
-ls -l -a $BUILD_DIR
+ls -l -a $BUILD_DIR/.heroku/vendor/bin
 
 title "Build dir is " $BUILD_DIR
 

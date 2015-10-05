@@ -17,6 +17,8 @@ RUN mkdir /app/.heroku
 RUN mkdir /app/.heroku/vendor
 WORKDIR /app/.heroku
 
+RUN apt-get update
+RUN apt-get install -y libsqlite3-dev sqlite
 
 # Install python 3.4.3
 ENV PATH /app/.heroku/vendor/bin:$PATH
@@ -81,3 +83,5 @@ RUN make install
 WORKDIR /app/.heroku
 RUN rm -rf opencv-3.0.0
 RUN rm -rf opencv_contrib-3.0.0
+
+RUN apt-get install -y squashfs-tools

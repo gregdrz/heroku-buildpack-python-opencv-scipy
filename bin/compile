@@ -65,7 +65,7 @@ export BLAS="$BUILD_DIR/.heroku/vendor/lib/atlas-base/atlas/libblas.a"
 export LAPACK="$BUILD_DIR/.heroku/vendor/lib/atlas-base/atlas/liblapack.a"
 export LD_LIBRARY_PATH="$BUILD_DIR/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib/atlas-base:$BUILD_DIR/.heroku/vendor/lib/atlas-base/atlas"
 export PATH="$BUILD_DIR/.heroku/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-export PYTHONPATH="$BUILD_DIR/.heroku/vendor/lib/python2.7/site-packages/"
+export PYTHONPATH="$BUILD_DIR/.heroku/vendor/lib/python2.7/site-packages/:$BUILD_DIR/.apt/usr/lib/python2.7/dist-packages/"
 
 # Setup environment
 mkdir -p $CACHE_DIR
@@ -78,12 +78,12 @@ subtitle "Unpacking..."
 tar -xzf $CACHE_DIR/env.tar.gz -C $BUILD_DIR
 
 # instructions for creating pygame
-apt-get install gfortran g++ liblapack-dev libsdl1.2-dev libsmpeg-dev mercurial
-#wget -O $CACHE_DIR/pygame.tar.gz https://bitbucket.org/pygame/pygame/get/6625feb3fc7f.tar.gz
-#tar zxvf $CACHE_DIR/pygame.tar.gz -C $BUILD_DIR
-#rm $CACHE_DIR/pygame.tar.gz
-#python $BUILD_DIR/pygame-pygame-6625feb3fc7f/setup.py -setuptools install
-#rm -r $BUILD_DIR/pygame-pygame-6625feb3fc7f
+#apt-get install gfortran g++ liblapack-dev libsdl1.2-dev libsmpeg-dev mercurial
+wget -O $CACHE_DIR/pygame.tar.gz https://bitbucket.org/pygame/pygame/get/6625feb3fc7f.tar.gz
+tar zxvf $CACHE_DIR/pygame.tar.gz -C $BUILD_DIR
+rm $CACHE_DIR/pygame.tar.gz
+python $BUILD_DIR/pygame-pygame-6625feb3fc7f/setup.py -setuptools install
+rm -r $BUILD_DIR/pygame-pygame-6625feb3fc7f
 
 # installing application dependencies
 if [ -f $BUILD_DIR/requirements.txt ]; then

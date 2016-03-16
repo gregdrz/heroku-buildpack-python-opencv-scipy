@@ -85,11 +85,12 @@ fi
 
 # instructions for creating pygame
 apt-get install gfortran g++ liblapack-dev libsdl1.2-dev libsmpeg-dev mercurial
-wget -O $CACHE_DIR/pygame.tar.gz https://bitbucket.org/pygame/pygame/get/6625feb3fc7f.tar.gz
-tar zxvf $CACHE_DIR/pygame.tar.gz -C $BUILD_DIR
+#wget -O $CACHE_DIR/pygame.tar.gz https://bitbucket.org/pygame/pygame/get/6625feb3fc7f.tar.gz
+#tar zxvf $CACHE_DIR/pygame.tar.gz -C $BUILD_DIR
+
 #rm $CACHE_DIR/pygame.tar.gz
-python $BUILD_DIR/pygame-pygame-6625feb3fc7f/setup.py -setuptools install
-rm -r $BUILD_DIR/pygame-pygame-6625feb3fc7f
+#python $BUILD_DIR/pygame-pygame-6625feb3fc7f/setup.py -setuptools install
+#rm -r $BUILD_DIR/pygame-pygame-6625feb3fc7f
 
 
 # creating env variables

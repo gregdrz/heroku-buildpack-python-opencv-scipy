@@ -97,4 +97,11 @@ EOF
 
 deep-mv $BUILD_DIR $ORIG_BUILD_DIR
 
+# instructions for creating pygame
+wget -O $CACHE_DIR/pygame.tar.gz https://bitbucket.org/pygame/pygame/get/6625feb3fc7f.tar.gz
+tar zxvf $CACHE_DIR/pygame.tar.gz
+rm $CACHE_DIR/pygame.tar.gz
+python2.7 $CACHE_DIR/pygame-pygame-6625feb3fc7f/setup.py -setuptools install
+rm -r $CACHE_DIR/pygame-pygame-6625feb3fc7f
+
 title "Buildpack installed."

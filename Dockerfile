@@ -18,12 +18,13 @@ RUN mkdir /app/.heroku/vendor
 WORKDIR /app/.heroku
 
 RUN apt-get update
+RUN apt-get install python-opencv python-setuptools python-pip gfortran g++ liblapack-dev libsdl1.2-dev libsmpeg-dev mercurial
 RUN apt-get install -y libsqlite3-dev sqlite
 
 # Install latest setup-tools and pip
-RUN curl -s -L https://bootstrap.pypa.io/get-pip.py > get-pip.py
-RUN python2.7 get-pip.py
-RUN rm get-pip.py
+#RUN curl -s -L https://bootstrap.pypa.io/get-pip.py > get-pip.py
+#RUN python2.7 get-pip.py
+#RUN rm get-pip.py
 
 
 # Install numpy
@@ -39,7 +40,7 @@ ENV BLAS /app/.heroku/vendor/lib/atlas-base/atlas/libblas.a
 ENV LAPACK /app/.heroku/vendor/lib/atlas-base/atlas/liblapack.a
 ENV LD_LIBRARY_PATH /app/.heroku/vendor/lib/atlas-base:/app/.heroku/vendor/lib/atlas-base/atlas:$LD_LIBRARY_PATH
 RUN apt-get update
-RUN apt-get install -y gfortran
+#RUN apt-get install -y gfortran
 
 
 # Install scipy

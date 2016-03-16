@@ -71,18 +71,15 @@ RUN pip install -v matplotlib
 # Install opencv with python bindings
 RUN apt-get update
 RUN apt-get install -y cmake
-RUN curl -s -L https://github.com/Itseez/opencv/archive/3.0.0.zip > opencv-3.0.0.zip
-RUN unzip opencv-3.0.0.zip
-RUN rm opencv-3.0.0.zip
-RUN curl -s -L https://github.com/Itseez/opencv_contrib/archive/3.0.0.zip > opencv_contrib-3.0.0.zip
-RUN unzip opencv_contrib-3.0.0.zip
-RUN rm opencv_contrib-3.0.0.zip
-WORKDIR /app/.heroku/opencv-3.0.0
-RUN cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/app/.heroku/vendor -D BUILD_DOCS=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF -D BUILD_opencv_python=ON -D OPENCV_EXTRA_MODULES_PATH=/app/.heroku/opencv_contrib-3.0.0/modules .
+RUN curl -s -L https://github.com/Itseez/opencv/archive/2.4.10.zip > opencv-2.4.10.zip
+RUN unzip opencv-2.4.10.zip
+RUN rm opencv-2.4.10.zip
+WORKDIR /app/.heroku/opencv-2.4.10
+RUN cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/app/.heroku/vendor -D BUILD_DOCS=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF -D BUILD_opencv_python=ON -D .
 RUN make install
 WORKDIR /app/.heroku
-RUN rm -rf opencv-3.0.0
-RUN rm -rf opencv_contrib-3.0.0
+RUN rm -rf opencv-2.4.10
+
 
 # Install pygame
 RUN wget -O pygame.tar.gz https://bitbucket.org/pygame/pygame/get/6625feb3fc7f.tar.gz

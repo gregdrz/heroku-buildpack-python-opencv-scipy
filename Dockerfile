@@ -20,25 +20,9 @@ WORKDIR /app/.heroku
 RUN apt-get update
 RUN apt-get install -y libsqlite3-dev sqlite
 
-# Install python 3.4.3
-ENV PATH /app/.heroku/vendor/bin:$PATH
-ENV LD_LIBRARY_PATH /app/.heroku/vendor/lib/
-ENV PYTHONPATH /app/.heroku/vendor/lib/python3.4/site-packages
-RUN curl -s -L https://www.python.org/ftp/python/3.4.3/Python-3.4.3.tgz > Python-3.4.3.tgz
-RUN tar zxvf Python-3.4.3.tgz
-RUN rm Python-3.4.3.tgz
-WORKDIR /app/.heroku/Python-3.4.3
-RUN ./configure --prefix=/app/.heroku/vendor/ --enable-shared
-RUN make install
-WORKDIR /app/.heroku/vendor/bin
-RUN cp python3 python
-WORKDIR /app/.heroku
-RUN rm -rf Python-3.4.3
-
-
 # Install latest setup-tools and pip
 RUN curl -s -L https://bootstrap.pypa.io/get-pip.py > get-pip.py
-RUN python3 get-pip.py
+RUN python2.7 get-pip.py
 RUN rm get-pip.py
 
 

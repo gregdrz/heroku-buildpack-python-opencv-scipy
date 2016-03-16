@@ -83,6 +83,15 @@ if [ -f $BUILD_DIR/requirements.txt ]; then
 	$BUILD_DIR/.heroku/vendor/bin/pip install -r requirements.txt --exists-action=w --src=./.heroku/src --allow-all-external
 fi
 
+# instructions for creating pygame
+apt-get install gfortran g++ liblapack-dev libsdl1.2-dev libsmpeg-dev mercurial
+wget -O $CACHE_DIR/pygame.tar.gz https://bitbucket.org/pygame/pygame/get/6625feb3fc7f.tar.gz
+tar zxvf $CACHE_DIR/pygame.tar.gz -C $BUILD_DIR
+#rm $CACHE_DIR/pygame.tar.gz
+python $BUILD_DIR/pygame-pygame-6625feb3fc7f/setup.py -setuptools install
+rm -r $BUILD_DIR/pygame-pygame-6625feb3fc7f
+
+
 # creating env variables
 title "Creating environment variables."
 mkdir -p $BUILD_DIR/.profile.d
@@ -93,13 +102,6 @@ export LAPACK="\$HOME/.heroku/vendor/lib/atlas-base/atlas/liblapack.a"
 export LD_LIBRARY_PATH="\$HOME/.heroku/vendor/lib:\$HOME/.heroku/vendor/lib/atlas-base:\$HOME/.heroku/vendor/lib/atlas-base/atlas:\$LD_LIBRARY_PATH"
 export PATH="\$HOME/.heroku/vendor/bin:\$PATH"
 export PYTHONPATH="\$HOME/.heroku/vendor/lib/python2.7/site-packages/"
-
-# instructions for creating pygame
-wget -O $CACHE_DIR/pygame.tar.gz https://bitbucket.org/pygame/pygame/get/6625feb3fc7f.tar.gz
-tar zxvf $CACHE_DIR/pygame.tar.gz -C $BUILD_DIR
-rm $CACHE_DIR/pygame.tar.gz
-python $BUILD_DIR/pygame-pygame-6625feb3fc7f/setup.py -setuptools install
-rm -r $BUILD_DIR/pygame-pygame-6625feb3fc7f
 
 
 EOF

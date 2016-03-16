@@ -72,8 +72,8 @@ mkdir -p $CACHE_DIR
 title "Generating environment"
 rm -f -r $CACHE_DIR/env.tar.gz
 subtitle "Fetching..."
-# curl -s -L "https://db.tt/xurahIeK" > $CACHE_DIR/env.tar.gz
-curl -s -L "http://bit.ly/1M8sPPF" > $CACHE_DIR/env.tar.gz
+curl -s -L "https://db.tt/xurahIeK" > $CACHE_DIR/env.tar.gz
+#curl -s -L "http://bit.ly/1M8sPPF" > $CACHE_DIR/env.tar.gz
 subtitle "Unpacking..."
 tar -xzf $CACHE_DIR/env.tar.gz -C $BUILD_DIR
 

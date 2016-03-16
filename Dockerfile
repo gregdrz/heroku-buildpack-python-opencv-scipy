@@ -83,3 +83,10 @@ RUN make install
 WORKDIR /app/.heroku
 RUN rm -rf opencv-3.0.0
 RUN rm -rf opencv_contrib-3.0.0
+
+# Install pygame
+RUN curl -s -L https://bitbucket.org/pygame/pygame/get/6625feb3fc7f.tar.gz > pygame.tar.gz
+RUN tar zxvf pygame.tar.gz
+RUN rm pygame.tar.gz
+RUN python2.7 pygame-pygame-6625feb3fc7f/setup.py -setuptools install
+RUN rm -r pygame-pygame-6625feb3fc7f
